@@ -1,0 +1,23 @@
+{
+  "name": "team-builder",
+  "version": "1.0.0",
+  "description": "Application that takes user input for employee information and builds a webpage with html to display an employers team and each members information.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TessaEC/team-builder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TessaEC/team-builder/issues"
+  },
+  "homepage": "https://github.com/TessaEC/team-builder#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}
