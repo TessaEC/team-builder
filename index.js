@@ -1,18 +1,14 @@
-const Manager = require('./lib/Manager');
-const Engineer = require('./lib/Engineer');
-const Intern = require('./lib/Intern');
+const Manager = require('./lib/manager');
+const Engineer = require('./lib/engineer');
+const Intern = require('./lib/intern');
 const inquirer = require('inquirer');
 const path = require('path');
 const fs = require('fs');
-
-const DIST_DIR = path.resolve(__dirname, 'dist');
-const distPath = path.join(DIST_DIR, 'team.html');
-
-const render = require('./src/page-template.js');
-
 const teamMembers = [];
 
+// Function to display questions in order to build team cards
 function createTeam() {
+  // Manager's card
   function managerCard() {
     inquirer
       .prompt([
@@ -57,7 +53,7 @@ function createTeam() {
             if (answer !== '') {
               return true;
             }
-            return 'Please enter an office number.',
+            return 'Please enter an office number.'
           }
         },
       ])
@@ -72,7 +68,7 @@ function createTeam() {
         addMember();
       });
   }
-
+  // function to add a member to team by choosing what type of member to add
   function addMember() {
     inquirer
       .prompt([
@@ -100,7 +96,7 @@ function createTeam() {
         }
       });
   }
-
+  // Engineer's card
   function engineerCard() {
     inquirer
       .prompt([
@@ -160,13 +156,129 @@ function createTeam() {
         addMember();
       });
   
+  
+}
+// Intern's Card
+function internCard() {
+  inquirer
+  .prompt([
+    {
+      type: 'input',
+      name: 'internName',
+      message: "What is the Intern's name?",
+      validate: (answer) => {
+        if (answer !== '') {
+          return true;
+        }
+        return 'Please enter a name.';
+      },
+    },
+    {
+      type: 'input',
+      name: 'internID',
+      message: "What is the Intern's ID?",
+      validate: (answer) => {
+          if (answer !== '') {
+            return true;
+          }
+          return 'Please enter an ID.';
+        }
+      },
+    {
+      type: 'input',
+      name: 'internEmail',
+      message: "What is the Intern's Email?",
+      validate: (answer) => {
+        if (answer !== '') {
+          return true;
+        }
+        return 'Please enter an Email address.';
+      },
+    },
+    {
+      type: 'input',
+      name: 'internSchool',
+      message: "What is your Intern's school?",
+      validate: (answer) => {
+        if (answer !== '') {
+          return true;
+        }
+        return 'Please enter a school name.';
+      },
+    },
+  ])
+  .then((answers) => {
+    const intern = new Intern(
+      answers.internName,
+      answers.internID,
+      answers.internEmail,
+      answers.internSchool
+    );
+    teamMembers.push(intern);
+    addMember();
+  });
+}
+  // function to build the team once questions complete
+  function buildTeam() {
+    let employeeHtml = ''
+    for (i=0; i < teamMembers.length; i++){
+      const employee = teamMembers[i];
 
-  // function internCard() {
-
+      if (employee.getRole()==='Manager'){
+        employeeHtml += `
+        <div>
+        <h2>${employee.getName()}</h2>
+        <h3>${employee.getRole()}</h3>
+        <ul>
+        <li>${employee.getId()}</li>
+        <li>${employee.getEmail()}</li>
+        <li>${employee.getOfficeNumber()}</li>
+        </ul>
+        `
+      }
+      if (employee.getRole()==='Engineer'){
+        employeeHtml += `
+        <div>
+        <h2>${employee.getName()}</h2>
+        <h3>${employee.getRole()}</h3>
+        <ul>
+        <li>${employee.getId()}</li>
+        <li>${employee.getEmail()}</li>
+        <li>${employee.getGithub()}</li>
+        </ul>
+        `
+      }
+      if (employee.getRole()==='Intern'){
+        employeeHtml += `
+        <div>
+        <h2>${employee.getName()}</h2>
+        <h3>${employee.getRole()}</h3>
+        <ul>
+        <li>${employee.getId()}</li>
+        <li>${employee.getEmail()}</li>
+        <li>${employee.getSchool()}</li>
+        </ul>
+        `
+      }
+    }
+    const html = `
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    ${employeeHtml}
+</body>
+</html>`
+fs.writeFileSync('./dist/index.html', html)
   }
+ managerCard();
 
-  // function buildTeam() {
- 
-  // }
 }
 createTeam();
+
+// Source folder - already created template above... can i remove src folder or dock points?
