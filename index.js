@@ -2,7 +2,6 @@ const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
 const inquirer = require('inquirer');
-const path = require('path');
 const fs = require('fs');
 const teamMembers = [];
 
@@ -294,6 +293,7 @@ function internCard() {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Team Builder - My Team</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
         <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -319,5 +319,3 @@ fs.writeFileSync('./dist/index.html', html)
 
 }
 createTeam();
-
-// Source folder - already created template above... can i remove src folder or dock points?

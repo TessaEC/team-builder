@@ -1,7 +1,7 @@
 # Team Builder
 
 ## Description
-An application that takes user input with employee information and builds a webpage with html and css to display an employers team and each members information on a card for each member.
+An application that takes user input with employee information and builds a webpage with html and css to display an employers team and each members information on a card. Code also includes jest to run tests on code.
 
 ## Usage
 User Story:
@@ -34,3 +34,8 @@ THEN I exit the application, and the HTML is generated
 N/A
 
 ## Visuals
+
+Test Video URL: 
+
+
+Github Repository URL: 
