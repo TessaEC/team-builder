@@ -226,52 +226,91 @@ function internCard() {
 
       if (employee.getRole()==='Manager'){
         employeeHtml += `
-        <div>
+        <div class="card employee-card" id="card-bg">
+        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">
         <h2>${employee.getName()}</h2>
-        <h3>${employee.getRole()}</h3>
-        <ul>
-        <li>${employee.getId()}</li>
-        <li>${employee.getEmail()}</li>
-        <li>${employee.getOfficeNumber()}</li>
-        </ul>
-        `
+        </div>
+        <div class="card-body">
+        <h3 class="card-title" id="manager-color"><i class="bi bi-clipboard2-data"></i>${employee.getRole()}</h3>
+          <p class="card-text">
+            <li class="list-group-item">ID: ${employee.getId()}</li>
+            <li class="list-group-item">Email: <a href="mailto: ">${employee.getEmail()}</a></li>
+            <li class="list-group-item">Office number: ${employee.getOfficeNumber()}</li>
+            </ul>
+          </div>
+        </div>
+      </div>`
       }
       if (employee.getRole()==='Engineer'){
         employeeHtml += `
         <div>
+        <div class="card employee-card" id="card-bg">
+        <div class="card employee-card">
+        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">
         <h2>${employee.getName()}</h2>
-        <h3>${employee.getRole()}</h3>
-        <ul>
-        <li>${employee.getId()}</li>
-        <li>${employee.getEmail()}</li>
-        <li>${employee.getGithub()}</li>
-        </ul>
-        `
+        </div>
+        <div class="card-body">
+          <h3 class="card-title" id="engineer-color"><i class="bi bi-gear-fill"></i>${employee.getRole()}</h3>
+          <ul class="card-text">
+            <li class="list-group-item">ID: ${employee.getId()}</li>
+            <li class="list-group-item">Email: <a href="mailto: ">${employee.getEmail()}</a></li>
+            <li class="list-group-item">GitHub: <a href="https://github.com/${employee.getGithub()}" target="_blank" 
+            rel="noopener noreferrer">${employee.getGithub()}</a></li>
+            </ul>
+            </div>
+          </div>
+        </div>
+      </div>`
       }
       if (employee.getRole()==='Intern'){
         employeeHtml += `
         <div>
+        <div class="card employee-card" id="card-bg">
+        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">
         <h2>${employee.getName()}</h2>
-        <h3>${employee.getRole()}</h3>
-        <ul>
-        <li>${employee.getId()}</li>
-        <li>${employee.getEmail()}</li>
-        <li>${employee.getSchool()}</li>
-        </ul>
-        `
+        </div>
+        <div class="card-body">
+          <h3 class="card-title" id="intern-color"><i class="bi bi-mortarboard"></i>${employee.getRole()}</h3>
+          <ul class="card-text">
+            <li class="list-group-item">ID: ${employee.getId()}</li>
+            <li class="list-group-item">Email: <a href="mailto: ">${employee.getEmail()}</a></li>
+            <li class="list-group-item">Schooling: ${employee.getSchool()}</li>
+            </ul>
+            </div>
+          </div>
+        </div>
+      </div>`
       }
     }
     const html = `
     <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Team Builder - My Team</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 p-5 mb-3 team-heading">
+        <h1 class="text-center">Team Builder</h1>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="team-area col-12 d-flex justify-content-center">
     ${employeeHtml}
+      </div>
+    </div>
+  </div>
 </body>
 </html>`
 fs.writeFileSync('./dist/index.html', html)

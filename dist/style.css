@@ -1,0 +1,74 @@
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    letter-spacing: .5px;
+}
+
+.team-heading {
+    background-color: #45565e;
+    color: #ffffff;
+  }
+  
+h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 4em;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.row {
+    justify-content: space-between;
+}
+  
+.team-area {
+    margin: 3em auto;
+}
+
+.employee-card {
+    margin: 1em;
+    max-width: fit-content;
+    min-height: fit-content;
+    background-color: #cec0c8;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+    border: none;
+}
+
+#card-bg {
+    max-height: 0;
+    flex-direction: column;
+    justify-content: space-between;
+}
+  
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #ebebec;
+    color: #000000;
+}
+
+#manager-color {
+    background-color: rgb(105, 2, 83);
+    color:  rgb(255, 235, 251);
+}
+
+#engineer-color {
+    background-color: navy;
+    color: rgb(230, 242, 253);
+ }
+
+#intern-color {
+    background-color:  #475e45;
+    color: #e7fae2;;
+}
+
+@media (max-width: 1205px) {
+    .col-12 {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        height: 308%;
+    }
+}
