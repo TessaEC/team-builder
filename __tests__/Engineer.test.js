@@ -1,20 +1,14 @@
 const Engineer = require("../lib/engineer");
-
-// tests for Engineer-able to set and get constructor arguments & Role
-  test("GitHub username is set", () => {
-    const testGithub = "username";
-    const newGithub = new Engineer(testGithub);
-    expect(newGithub.email).toBe(testGithub);
-  });
+const Employee = require("../lib/Employee");
 
   test("getRole() returns Engineer option", () => {
     const testRole = "Engineer";
-    const newRole = new Engineer("Test", 001, "example@test.com", "username");
+    const newRole = new Engineer("Test", 505, "example@test.com", testRole);
     expect(newRole.getRole()).toBe(testRole);
   });
 
   test("Can use getGithub()", () => {
-    const testGithub = "username";
-    const newGithub = new Engineer(testGithub);
+    const testGithub = "GitHub user";
+    const newGithub = new Engineer("Test", 505, "example@test.com", testGithub);
     expect(newGithub.getGithub()).toBe(testGithub);
   });

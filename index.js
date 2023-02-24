@@ -232,20 +232,19 @@ function internCard() {
         </div>
         <div class="card-body">
         <h3 class="card-title" id="manager-color"><i class="bi bi-clipboard2-data"></i>${employee.getRole()}</h3>
-          <p class="card-text">
+          <ul class="card-text">
             <li class="list-group-item">ID: ${employee.getId()}</li>
             <li class="list-group-item">Email: <a href="mailto: ">${employee.getEmail()}</a></li>
             <li class="list-group-item">Office number: ${employee.getOfficeNumber()}</li>
             </ul>
-          </div>
         </div>
-      </div>`
+        </div>
+        </div>`
       }
       if (employee.getRole()==='Engineer'){
         employeeHtml += `
         <div>
         <div class="card employee-card" id="card-bg">
-        <div class="card employee-card">
         <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
         <div class="card-header">
         <h2>${employee.getName()}</h2>
@@ -258,10 +257,10 @@ function internCard() {
             <li class="list-group-item">GitHub: <a href="https://github.com/${employee.getGithub()}" target="_blank" 
             rel="noopener noreferrer">${employee.getGithub()}</a></li>
             </ul>
-            </div>
-          </div>
         </div>
-      </div>`
+        </div>
+        </div>
+        </div>`
       }
       if (employee.getRole()==='Intern'){
         employeeHtml += `
@@ -278,10 +277,10 @@ function internCard() {
             <li class="list-group-item">Email: <a href="mailto: ">${employee.getEmail()}</a></li>
             <li class="list-group-item">Schooling: ${employee.getSchool()}</li>
             </ul>
-            </div>
-          </div>
         </div>
-      </div>`
+        </div>
+        </div>
+        </div>`
       }
     }
     const html = `
@@ -293,7 +292,7 @@ function internCard() {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Team Builder - My Team</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
-         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
         <link rel="stylesheet" href="style.css">
 </head>
 <body>

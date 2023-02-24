@@ -47,6 +47,11 @@ h1 {
     justify-content: center;
     background-color: #ebebec;
     color: #000000;
+    min-width: max-content;
+}
+
+.card {
+    min-width: max-content;
 }
 
 #manager-color {

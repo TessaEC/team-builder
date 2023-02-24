@@ -36,6 +36,7 @@ N/A
 ## Visuals
 
 Test Video URL: 
-
+https://drive.google.com/file/d/1gKMRpdGsoB21CFb9mbbkE6iJJeOHkMQ5/view
 
 Github Repository URL: 
+https://github.com/TessaEC/team-builder
